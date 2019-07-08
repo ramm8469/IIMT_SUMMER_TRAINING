@@ -12,7 +12,8 @@ public class ArrayExercise {
 
         //Getting player name
         for (int i = 0; i <number_of_player ; i++) {
-            System.out.println("Enter player "+(i++)+" " +
+            int n = i+1;
+            System.out.println("Enter player "+n+" " +
                     "Name" +
                     " : ");
             player[i] = sc.next();
@@ -27,6 +28,7 @@ public class ArrayExercise {
         int six[][] = new int[number_of_player][ball];
 
         int four[][] = new int[number_of_player][ball];
+
         int fourcount =0,sixCount =0;
 
         // Getting score for each palyer
@@ -35,6 +37,12 @@ public class ArrayExercise {
             for (int j = 0; j <ball ; j++) {
                 System.out.println("Enter the runs for "+player[i]);
                 player_score[i][j] = sc.nextInt();
+            }
+
+        }
+        // Calculating fours and sixes
+        for (int i = 0; i <number_of_player ; i++) {
+            for (int j = 0; j <ball ; j++) {
                 if (player_score[i][j] == 4){
                     fourcount++;
                     four[i][j] = fourcount;
@@ -56,20 +64,31 @@ public class ArrayExercise {
             System.out.print("\t");
             System.out.print("No . of Fours :");
 
+            int fours =0;
             //no of four by player
-            for (int j = 0; j <four.length ; j++) {
-                System.out.print(four[i][j]);
+            for (int j = 0; j <ball ; j++) {
 
+                if (four[i][j] != 0){
+                    fours++;
+                }
             }
+            System.out.print(fours);
 
-            System.out.print("No of Sixes :");
+
+            int sixes =0;
+            System.out.print("\nNo of Sixes :");
             // no of six by player
-            for (int j = 0; j <six.length ; j++) {
-                System.out.print(six[i][j]);
+            for (int j = 0; j <ball ; j++) {
+                if (six[i][j] != 0){
+                    sixes++;
+                }
 
             }
+            System.out.print(sixes);
 
             System.out.println();
+
+
 
         }
 
